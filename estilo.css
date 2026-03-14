@@ -4,7 +4,7 @@
     box-sizing: border-box;
 }
 
-body{
+body {
     font-family: Arial, sans-serif;
     background-color: #F8F3E1;
     line-height: 1.6;
@@ -12,12 +12,22 @@ body{
 
 }
 
-h1 {
+.cabecalho {
+    font-size: 25px;
     color: #41431B;
-    text-align: center;
-    font-size: 3rem;
-    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
 }
+
+.foto-perfil {
+    width: 90px;
+    height: 90px;
+    border-radius: 50px;
+    object-fit: cover;
+}
+
 
 h2 {
     color: #616844;
