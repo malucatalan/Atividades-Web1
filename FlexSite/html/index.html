@@ -6,19 +6,32 @@
     <title>FlexSite</title>
     <link rel="stylesheet" href="../css/style.css">
 </head>
+
 <body>
     <input type="checkbox" id="menu-barra" hidden>
-    <label for="menu-barra" class="barra">☰</label>
+    <input type="checkbox" id="tema" hidden>
+
     <header class="menu">
-        <h1>FlexSite</h1>
-        <nav class="opcoes">
-            <a href="#">Início</a>
-            <a href="#">Sobre</a>
-            <a href="#">Projetos</a>
-            <a href="#">Contato</a>
-        </nav>
+    <label for="menu-barra" class="barra">☰</label>
+    <h1>FlexSite</h1>
+    <nav class="opcoes-topo">
+        <a href="#">Início</a>
+        <a href="#">Sobre</a>
+        <a href="#">Projetos</a>
+        <a href="#">Contato</a>
+        <label for="tema" class="botao-tema">🌛</label>
+    </nav>
     </header>
+
+    <nav class="opcoes-lateral">
+        <a href="#">Início</a>
+        <a href="#">Sobre</a>
+        <a href="#">Projetos</a>
+        <a href="#">Contato</a>
+    </nav>
+
     <main class="main">
+
         <section class="corpo">
             <h2>Bem-vindo ao FlexSite</h2>
             <p>Este site agora tem menu escondido e tema escuro com CSS puro</p>
