@@ -10,53 +10,56 @@
 
 <body>
     <header>
-        <div class="barra">
-            <nav class="navbar bg-body-tertiary" >
-                <div>
-                    <h1>
-                        <img src="img/unnamed.png" alt="Logo" width="40" height="40">
-                        Gerenciador de Tarefas
-                    </h1>
-                </div>
-            </nav>
-        </div>
+        <nav class="navbar bg-body-tertiary">
+            <div class="container-fluid justify-content-center">
+                <h2>
+                    <img src="img/unnamed.png" alt="Logo" width="40" height="40">
+                    Gerenciador de Tarefas
+                </h2>
+            </div>
+        </nav>
     </header>
 
-    <div>
-        <input type="text" id="tarefa" placeholder="Digite sua tarefa...">
+    <div class="container mt-4">
+        <div class="d-flex justify-content-center gap-2 mb-4">
+            <input type="text" id="tarefa" placeholder="Digite sua tarefa...">
+            <button style="background-color: azure;" onclick="mostrar()">Enviar Tarefa</button>
+        </div>
 
-        <button onclick="mostrar()">Enviar Tarefa</button>
-        
-        <div id="lista-tarefas"></div>
+        <div id="lista-tarefas" class="d-flex flex-wrap gap-3 justify-content-center"></div>
     </div>
 
     <script>
         function mostrar() {
             let Tarefa = document.getElementById("tarefa");
             let textoTarefa = Tarefa.value;
+            if (textoTarefa === "") return
+
+            let idUnico = Date.now()
+
             let listaTarefas = document.getElementById("lista-tarefas");
 
             let novoCard = `
-                <div class="card" style="width: 18rem;">
+                <div class="card card-tarefa" style="width: 18rem; margin-bottom: 10px; background-color: aliceblue; ">
                     <div class="card-body">
                         <h5 class="card-title">${textoTarefa}</h5>
                         <h6 class="card-subtitle mb-2 text-body-secondary">Prioridade</h6>
-                        <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
-                            <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked>
-                            <label class="btn btn-outline-primary" for="btnradio1">Alta</label>
+                        <div class="btn-group" role="group">
+                            
+                            <input type="radio" class="btn-check" name="btnradio-${idUnico}" id="alta-${idUnico}" autocomplete="off" checked>
+                            <label class="btn btn-outline-danger" for="alta-${idUnico}">Alta</label>
 
-                            <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
-                            <label class="btn btn-outline-primary" for="btnradio2">Média</label>
+                            <input type="radio" class="btn-check" name="btnradio-${idUnico}" id="media-${idUnico}" autocomplete="off">
+                            <label class="btn btn-outline-warning" for="media-${idUnico}">Média</label>
 
-                            <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off">
-                            <label class="btn btn-outline-primary" for="btnradio3">Baixa</label>
+                            <input type="radio" class="btn-check" name="btnradio-${idUnico}" id="baixa-${idUnico}" autocomplete="off">
+                            <label class="btn btn-outline-success" for="baixa-${idUnico}">Baixa</label>
                         </div>
                     </div>
                 </div>
             `;
 
-            listaTarefas.innerHTML += novoCard;
-
+            document.getElementById("lista-tarefas").innerHTML += novoCard;
             Tarefa.value = "";
         }
     </script>
